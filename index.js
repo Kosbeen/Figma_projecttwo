@@ -19,4 +19,10 @@ var mySwiper = new Swiper('.swiper-container', {
     scrollbar: {
       el: '.swiper-scrollbar',
     },
+    var mySwiper = new Swiper('.swiper-container', {
+      a11y: {
+        prevSlideMessage: 'Previous slide',
+        nextSlideMessage: 'Next slide',
+      },
+    })
   })

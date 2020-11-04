@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>Евклид</title>
 </head>
 
@@ -74,10 +78,11 @@
                                 <button class="main-btn">Заказать расчёт</button>
                             </div>
                         </div>
-                        ...
                     </div>
                     <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination">
+                        <img class="pagination-swiper" src="./img/main/elipse.png" alt="">
+                    </div>
 
                     <!-- If we need navigation buttons -->
                     <div class="swiper-button-prev"></div>
@@ -170,13 +175,32 @@
         <section class="question">
             <div class="container question-container">
                 <h2 class="question-title title">Часто задаваемые вопросы</h2>
-                <button class="question-pic-link">Из чего формируется конечная стоимость проекта?</button>
-                <button class="question-pic-link">У меня есть свой проект. Сможем ли мы его доработать /
-                    реализовать?</button>
-                <button class="question-pic-link">Я выбираю между разными компаниями. В чём ваше отличие?</button>
-                <button class="question-pic-link">Могу ли я делегировать вам работу / согласование с подрядчиком /
-                    организацией?</button>
-                <button class="question-pic-link">Могу ли я вернуть деньги на каком-либо из этапов работ?</button>
+                <div class="question-accordion" id="accordion">
+                    <h3 class="question-pic-link">Из чего формируется конечная стоимость проекта?</h3>
+                    <div>
+                        <p>Из чего формируется конечная стоимость проекта?</p>
+                    </div>
+                    <h3 class="question-pic-link">У меня есть свой проект. Сможем ли мы его доработать /
+                        реализовать?</h3>
+                    <div>
+                        <p>У меня есть свой проект. Сможем ли мы его доработать /
+                            реализовать?</p>
+                    </div>
+                    <h3 class="question-pic-link">Я выбираю между разными компаниями. В чём ваше отличие?</h3>
+                    <div>
+                        <p>Я выбираю между разными компаниями. В чём ваше отличие?</p>
+                    </div>
+                    <h3 class="question-pic-link">Могу ли я делегировать вам работу / согласование с подрядчиком /
+                        организацией?</h3>
+                    <div>
+                        <p>Могу ли я делегировать вам работу / согласование с подрядчиком /
+                            организацией?</p>
+                    </div>
+                    <h3 class="question-pic-link">Могу ли я вернуть деньги на каком-либо из этапов работ?</h3>
+                    <div>
+                        <p>Могу ли я вернуть деньги на каком-либо из этапов работ?</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -249,25 +273,37 @@
     </footer>
     <script>
         var mySwiper = new Swiper('.swiper-container', {
-  // Optional parameters
-  loop: true,
+            // Optional parameters
+            loop: true,
 
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
 
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
 
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
-})
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        })
+    </script>
+    <script>
+        $(function () {
+            $("#accordion").accordion();
+        });
+    </script>
+    <script>
+        $("#accordion").accordion({
+            active: false,
+            collapsible: true
+        });
     </script>
 </body>
 
