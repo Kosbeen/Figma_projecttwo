@@ -25,4 +25,17 @@ var mySwiper = new Swiper('.swiper-container', {
         nextSlideMessage: 'Next slide',
       },
     })
-  })
+  });
+  
+  window.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('#burger').addEventListener('click', function() {
+      document.querySelector('#menu').classList.toggle('is-active')
+    })
+  });
+  
+  let MenuOn = document.querySelector('is-active');
+  let MenuOff = document.querySelector('#burger');
+
+  MenuOff.onclick = function () {
+    MenuOn.classList.toggle('#menu')
+  }

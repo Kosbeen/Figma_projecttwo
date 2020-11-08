@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header" id="header-id">
         <div class="container header-container">
             <nav class="header-nav">
                 <a aria-label="Логотип компании" class="header-logo"> <img class="header-img"
@@ -37,8 +37,17 @@
                         fill="#333333" />
                     <circle cx="11.5" cy="11.5" r="10.5" stroke="#333333" stroke-width="2" />
                 </svg>
-            </button>
-            <button class="burger"></button>
+            </button> 
+            <div class="burger" id="burger"></div>
+            <div class="menu" id="menu">
+                <ul class="menu-list">
+                    <li class="menu-list-item"><a class="nav-list-link">О нас</a></li>
+                    <li class="menu-list-item"><a class="nav-list-link">Проекты</a></li>
+                    <li class="menu-list-item"><a class="nav-list-link">Этапы</a></li>
+                    <li class="menu-list-item"><a class="nav-list-link">Отзывы</a></li>
+                    <li class="menu-list-item"><a class="nav-list-link">Контакты</a></li>
+                </ul>
+            </div>
         </div>
     </header>
     <main class="main">
@@ -177,27 +186,27 @@
                 <h2 class="question-title title">Часто задаваемые вопросы</h2>
                 <div class="question-accordion" id="accordion">
                     <h3 class="question-pic-link">Из чего формируется конечная стоимость проекта?</h3>
-                    <div>
+                    <div >
                         <p>Из чего формируется конечная стоимость проекта?</p>
                     </div>
                     <h3 class="question-pic-link">У меня есть свой проект. Сможем ли мы его доработать /
                         реализовать?</h3>
-                    <div>
+                    <div >
                         <p>У меня есть свой проект. Сможем ли мы его доработать /
                             реализовать?</p>
                     </div>
                     <h3 class="question-pic-link">Я выбираю между разными компаниями. В чём ваше отличие?</h3>
-                    <div>
+                    <div >
                         <p>Я выбираю между разными компаниями. В чём ваше отличие?</p>
                     </div>
                     <h3 class="question-pic-link">Могу ли я делегировать вам работу / согласование с подрядчиком /
                         организацией?</h3>
-                    <div>
+                    <div >
                         <p>Могу ли я делегировать вам работу / согласование с подрядчиком /
                             организацией?</p>
                     </div>
                     <h3 class="question-pic-link">Могу ли я вернуть деньги на каком-либо из этапов работ?</h3>
-                    <div>
+                    <div >
                         <p>Могу ли я вернуть деньги на каком-либо из этапов работ?</p>
                     </div>
                 </div>
@@ -280,6 +289,9 @@
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
+                renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 1) + '</span>';
+                },
             },
 
             // Navigation arrows
@@ -298,13 +310,19 @@
         $(function () {
             $("#accordion").accordion();
         });
-    </script>
-    <script>
-        $("#accordion").accordion({
-            active: false,
-            collapsible: true
-        });
-    </script>
+            </script>
+            <script>
+                $("#accordion").accordion({
+    active: false,
+    collapsible: true
+  });
+  window.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('#burger').addEventListener('click', function() {
+      document.querySelector('#menu').classList.toggle('is-active')
+    })
+  });
+            </script>
+
 </body>
 
 </html>
