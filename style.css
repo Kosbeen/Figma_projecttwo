@@ -75,6 +75,9 @@ ul {
     display: flex;
 }
 
+.menu {
+    display: none;
+}
 .header-container {
     display: flex;
 }
@@ -903,6 +906,7 @@ ul {
         padding: 25px 25px;
     }
     .menu {
+        display: block;
         position: absolute;
         width: 0;
         height: 0;
